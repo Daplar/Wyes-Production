@@ -16,7 +16,7 @@ if(isset($_GET['controller']) and in_array($_GET['controller'],$controllers))
 $nom_classe='Controller_'.$nom_controller;
 $nom_fichier='Controllers/'.$nom_classe.'.php';
 
-if(file_exist($nom_fichier)){
+if(file_exists($nom_fichier)){
   include_once $nom_fichier;
   $controller=new $nom_classe();
 }else{
