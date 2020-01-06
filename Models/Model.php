@@ -28,7 +28,7 @@ class Model
   public function getOverview()
   {
     try {
-      $requete=$this->bd->prepare('');
+      $requete=$this->bd->prepare('select * from PATIENT');
       $requete->execute();
       $reponse=[];
       while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
@@ -40,7 +40,7 @@ class Model
     }
   }
 
-  
+
 }
 
  ?>
