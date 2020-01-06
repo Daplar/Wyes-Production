@@ -28,13 +28,24 @@ class Model
   public function getOverview()
   {
     try {
-      $requete=$this->bd->prepare('select * from PATIENT');
+      //overview des quantitées des composants
+      $requete=$this->bd->prepare('select quantity, name from COMPONENT;');
+      $requete->execute();
+      $reponse=[];
+      echo "OVERVIEW";
+      while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
+          //echo '<li>' . implode(", ", $ligne) . '</li>'; affichage v1
+          //affichage v2
+          echo '<li>' . $ligne['name'] .' : '. $ligne['quantity'] . '</li>';
+      }
+      //overview des quantitées de lunnettes
+      $requete=$this->bd->prepare('select COUNT(*) from PRODUCT;');
       $requete->execute();
       $reponse=[];
       while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
-          $reponse[] = $ligne['category'];
+          echo '<li>' . implode(", ", $ligne) . ' lunnettes dans la base de données.</li>';
       }
-      return $reponse;
+
     } catch (PDOException $e) {
       die('Echec getOverview, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
     }
