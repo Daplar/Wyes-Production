@@ -58,4 +58,6 @@ INSERT INTO status VALUES('reconditionné');
 
 ALTER TABLE PRODUCT ADD FOREIGN KEY (status) REFERENCES STATUS(status);
 
+INSERT INTO PRODUCT VALUES(NULL,'serie_1','fabrication_1','test_lunette_1','monté','2020-07-01','meca_1','elec_1','logiciel_1','np','na','no_test');
+
 set names cp850;
