@@ -1,10 +1,6 @@
 <?php require('view_begin.php');?>
 <h1>Test view home</h1>
 <div class="overview">
-  <table>
-    <?php foreach ($tab as $cle => $ligne): ?>
-      <tr><td><?=$cle?></td><td><?=$ligne?></td></tr>
-    <?php endforeach; ?>
-  </table>
+  <p> il y a actuellement <?php echo $nb_lunettes?> produits dans la base de données
 </div>
 <?php require('view_end.php');?>
