@@ -2,7 +2,7 @@
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="Content/css/view_begin.css"/>
+    <link rel="stylesheet" href="Content/css/view.css"/>
     <title>WYES PROD</title>
   </head>
   <body>
@@ -14,7 +14,7 @@
           <p>Voilà</p>
         </div>
         <div class="social_media">
-          <a href="http://www.facebook.com"><img src="Content/img/logo_facebook.png" alt="Facebook"></a>
+          <a href="https://www.facebook.com/teamwyes/"><img src="Content/img/logo_facebook.png" alt="Facebook"></a>
           <a href="http://www.instagram.com"><img src="Content/img/logo_instagram.png" alt="Instagram"></a>
         </div>
       </header>
@@ -34,4 +34,3 @@
         <h2>Overview</h2>
         <p>Example</p>
       </div>
-    </div>

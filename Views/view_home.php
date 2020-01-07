@@ -4,6 +4,7 @@
   <table>
     <?php foreach ($tab as $cle => $ligne): ?>
       <tr><td><?=$cle?></td><td><?=$ligne?></td></tr>
+    <?php endforeach; ?>
   </table>
 </div>
 <?php require('view_end.php');?>
