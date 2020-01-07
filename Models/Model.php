@@ -29,14 +29,16 @@ class Model
   {
     try {
       //overview des quantitées des lunettes
-      $req=$this->bd->prepare('SELECT COUNT(*) FROM PRODUCT');
-      $req->execute();
-      $tab = $req->fetch(PDO::FETCH_NUM);
+      $requete=$this->bd->prepare('SELECT COUNT(*) FROM PRODUCT');
+      $requete->execute();
+      $tab = $requete->fetch(PDO::FETCH_NUM);
       return $tab[0];
     } catch (PDOException $e) {
       die('Echec getNbLunettes, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
     }
   }
+
+
   public function getNbComponent()
   {
     try {
@@ -49,6 +51,16 @@ class Model
     }
   }
 
+  public function getNamePatient($nom){
+    try {
+      $requete = $this->bd->prepare('SELECT * FROM PATIENT WHERE name = :m ');
+      $requete->bindValue(":m",$nom);
+      $requete->execute();
+      return $requete->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+      die('Echec getNamePatient, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
+    }
+  }
 
 
 }
