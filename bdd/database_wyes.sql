@@ -1,6 +1,8 @@
 
 DROP TABLE IF EXISTS PATIENT, PRODUCT, COMPONENT, TEST, STATUS;
 
+set names utf8;
+
 
 CREATE TABLE PATIENT (
   id_patient SERIAL,
@@ -55,3 +57,5 @@ INSERT INTO status VALUES('reconditionné');
 
 
 ALTER TABLE PRODUCT ADD FOREIGN KEY (status) REFERENCES STATUS(status);
+
+set names cp850;
