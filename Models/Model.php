@@ -62,6 +62,17 @@ class Model
     }
   }
 
+  public function getLastPatient()
+  {
+    try {
+        $req = $this->bd->prepare('SELECT * FROM PATIENT ORDER BY id_patient DESC LIMIT 25');
+        $req->execute();
+        return $req->fetchall(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die('Echec getLastPatient, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+  }
+
 
 }
 
