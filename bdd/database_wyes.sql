@@ -17,7 +17,6 @@ CREATE TABLE PRODUCT (
   serial_number VARCHAR (64),
   serial_number_fabrication VARCHAR (64),
   name VARCHAR (64),
-  quantity INT,
   status VARCHAR (64),
   fabrication_date DATE,
   hardware_version VARCHAR (64),
