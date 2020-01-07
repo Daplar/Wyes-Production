@@ -25,16 +25,27 @@ class Model
     return self::$instance;
   }
 
-  public function getNblunettes()
+  public function getNbLunettes()
   {
     try {
-      //overview des quantitées des composants
+      //overview des quantitées des lunettes
       $req=$this->bd->prepare('SELECT COUNT(*) FROM PRODUCT');
       $req->execute();
       $tab = $req->fetch(PDO::FETCH_NUM);
       return $tab[0];
     } catch (PDOException $e) {
-      die('Echec getNblunettes, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
+      die('Echec getNbLunettes, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
+    }
+  }
+  public function getNbComponent()
+  {
+    try {
+      //overview des quantitées des composants
+      $requete=$this->bd->prepare('select quantity, name from COMPONENT;');
+      $requete->execute();
+      return $requete->fetchAll(PDO::FETCH_ASSOC);
+      } catch (PDOException $e) {
+      die('Echec getNbComponent, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
     }
   }
 
