@@ -20,12 +20,30 @@
         </div>
       </header>
       <nav>
-        <a href="">Accueil</a>
-        <a href="">Suivi produit</a>
-        <a href="">Gestion retour</a>
-        <a href="">Production</a>
-        <a href="">Contact</a>
+        <ul>
+          <li><a href="">Accueil</a></li>
+          <li><a href="">Suivi produit</a></li>
+          <li><a href="">Gestion retour</a></li>
+          <li><a href="">Production</a></li>
+          <li><a href="">Production</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
       </nav>
+      
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+      var liste=document.querySelector('nav ul');
+
+      var position_top_raccourci = liste.offset().top;
+
+      $(window).scroll(function(){
+        if($(this).scrollTop() > position_top_raccourci)
+        {
+          liste.addClass("fixNavigation");
+        }else{
+          liste.removeClass("fixNavigation");
+        }})
+
+      </script>
       <div class="connexion">
         <a href="">Se connecter</a>
         <a href="">Créer un compte</a>
