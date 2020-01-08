@@ -13,6 +13,16 @@
 	<td><?= $v['serial_number_comp'] ?></td>
 	<td><?= $v['name'] ?></td>
 	<td><?= $v['quantity'] ?></td>
+	<td>
+	<a href="?controller=production&action=form_update&id=<?= $v['id_comp'] ?>">
+		<img src="Content/img/modif-icon.png"/>
+	</a>
+</td>
+<td>
+	<a href="?controller=production&action=remove&id=<?= $v['id_comp'] ?>">
+		<img class="icon" src="Content/img/remove-icon.png"/>
+	</a>
+</td>
 </tr>
 <?php endforeach ?>
 </table>

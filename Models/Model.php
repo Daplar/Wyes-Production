@@ -38,6 +38,26 @@ class Model
       die('Echec getNbLunettes, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
     }
   }
+
+  public function getComponentInfos($id)
+{
+
+    try {
+        $requete = $this->bd->prepare('Select * from COMPONENT WHERE id_comp = :id_comp');
+        $requete->bindValue(':id_comp', $id);
+        $requete->execute();
+        return $requete->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die('Echec getComponentInfos, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+    }
+}
+
+  public function isInDataBase($id)
+{
+    return $this->getComponentInfos($id) !== false;
+}
+
+
   public function addComponent($infos)
   {
 
@@ -55,7 +75,7 @@ class Model
           echo ('dans add component');
           return $requete->execute();
       } catch (PDOException $e) {
-          die('Echec addNobelPrize, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+          die('Echec addComponent, erreur n°' . $e->getCode() . ':' . $e->getMessage());
       }
   }
 
@@ -70,6 +90,17 @@ class Model
     }
   }
 
+  public function removeComponent($id_comp)
+{
+    if (!$this->isInDataBase($id_comp)) {
+        return false;
+    }
+
+    $requete = $this->bd->prepare("DELETE FROM COMPONENT WHERE id_comp = :id_comp");
+    $requete->bindValue(':id_comp', intval($id_comp), PDO::PARAM_INT);
+    return $requete->execute();
+}
+
   public function getLastComp(){
 
     try {
@@ -77,7 +108,22 @@ class Model
             $req->execute();
             return $req->fetchall(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            die('Echec getLast, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+            die('Echec getLastComp, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        }
+    }
+
+
+    public function updateComponent($infos)
+    {
+        try {
+            $requete = $this->bd->prepare('UPDATE COMPONENT SET serial_number_comp = :serial_number_comp, name = :name, quantity = :quantity WHERE id_comp = :id_comp');
+            $marqueurs = ['id_comp','serial_number_comp', 'name', 'quantity'];
+            foreach ($marqueurs as $value) {
+                $requete->bindValue(':' . $value, $infos[$value]);
+            }
+            return $requete->execute();
+        } catch (PDOException $e) {
+            die('Echec updateComponent, erreur n°' . $e->getCode() . ':' . $e->getMessage());
         }
     }
 
