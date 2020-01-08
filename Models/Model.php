@@ -61,7 +61,7 @@ class Model
 
   public function less_than_20()
   {
-    $nb_lunette=getNbLunettes();
+    $nb_lunette = getNbLunettes();
     if($nb_lunette<20)
     {
       return true;
@@ -74,9 +74,10 @@ class Model
   {
     try {
       //overview des quantitées des composants
-      $requete=$this->bd->prepare('select quantity, name from COMPONENT;');
+      $requete=$this->bd->prepare('SELECT COUNT(*) FROM COMPONENT');
       $requete->execute();
-      return $requete->fetchAll(PDO::FETCH_ASSOC);
+      $tab = $requete->fetch(PDO::FETCH_NUM);
+      return $tab[0];
       } catch (PDOException $e) {
       die('Echec getNbComponent, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
     }
@@ -84,8 +85,8 @@ class Model
 
   public function getNamePatient($nom){
     try {
-      $requete = $this->bd->prepare('SELECT * FROM PATIENT WHERE name = :m ');
-      $requete->bindValue(":m",$nom);
+      $requete = $this->bd->prepare('SELECT * FROM PATIENT WHERE name = :name ');
+      $requete->bindValue(":name",$nom);
       $requete->execute();
       return $requete->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {

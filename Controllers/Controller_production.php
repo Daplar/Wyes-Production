@@ -4,7 +4,7 @@ class Controller_production extends Controller
 {
   public function action_overview(){
     $m=Model::getModel();
-    $tab=['overview'=>$m->getNbComponent()];
+    $tab=['nb_components'=>$m->getNbComponent()];
     $this->render('production',$tab);
   }
 
@@ -32,9 +32,9 @@ class Controller_production extends Controller
     $this->render('production',[]);
 	}
 
-  public function action_form_add(){
+/*  public function action_form_add(){
   $this->render('form_add', []);
-  }
+}*/
 
   public function action_default(){
     $this->action_overview();
