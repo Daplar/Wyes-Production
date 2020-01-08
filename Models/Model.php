@@ -17,6 +17,7 @@ class Model
     }
   }
 
+
   public static function getModel()
   {
     if (is_null(self::$instance)) {
@@ -38,6 +39,16 @@ class Model
     }
   }
 
+  public function less_than_20()
+  {
+    $nb_lunette=getNbLunettes();
+    if($nb_lunette<20)
+    {
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   public function getNbComponent()
   {
