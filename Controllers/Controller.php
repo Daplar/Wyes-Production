@@ -37,6 +37,7 @@ abstract class Controller
     {
 
         //On extrait les données à afficher
+        //print_r($data);
         extract($data);
 
         //On teste si la vue existe
@@ -45,6 +46,8 @@ abstract class Controller
             //Si oui, on l'affiche
             include $file_name;
         } else {
+          echo "dans le else de action error";
+          echo($vue);
             //Sinon, on affiche la page d'->action_error
             $this->action_error("La vue n'existe pas !");
         }

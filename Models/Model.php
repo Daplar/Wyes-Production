@@ -52,6 +52,7 @@ class Model
           }
 
           //Exécution de la requête
+          echo ('dans add component');
           return $requete->execute();
       } catch (PDOException $e) {
           die('Echec addNobelPrize, erreur n°' . $e->getCode() . ':' . $e->getMessage());
