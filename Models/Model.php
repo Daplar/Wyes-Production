@@ -45,6 +45,7 @@ class Model
           //Préparation de la requête
           $requete = $this->bd->prepare('INSERT INTO COMPONENT(serial_number_comp, name, quantity) VALUES (:serial_number_comp, :name, :quantity)');
 
+<<<<<<< HEAD
           //Remplacement des marqueurs de place par les valeurs
           $marqueurs = ['serial_number_comp', 'name', 'quantity'];
           foreach ($marqueurs as $value) {
@@ -58,6 +59,8 @@ class Model
       }
   }
 
+=======
+>>>>>>> 22bfc3168188c5b5898392f4d5f7bfb596483152
   public function less_than_20()
   {
     $nb_lunette=getNbLunettes();

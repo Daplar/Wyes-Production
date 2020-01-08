@@ -3,7 +3,11 @@
 require_once "Models/Model.php";
 require_once "Controllers/Controller.php";
 
+<<<<<<< HEAD
 $controllers=["home","production","set"];
+=======
+$controllers=["home","production"];
+>>>>>>> 22bfc3168188c5b5898392f4d5f7bfb596483152
 $controllers_default="home";
 
 if(isset($_GET['controller']) and in_array($_GET['controller'],$controllers))
