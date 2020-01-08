@@ -21,11 +21,10 @@
       </header>
       <nav>
         <ul>
-          <li><a href="">Accueil</a></li>
+          <li><a href="?controller=home">Accueil</a></li>
           <li><a href="">Suivi produit</a></li>
           <li><a href="">Gestion retour</a></li>
           <li><a href="?controller=production&action=overview">Production</a></li>
-          <li><a href="">Production</a></li>
           <li><a href="">Contact</a></li>
         </ul>
       </nav>
@@ -47,9 +46,4 @@
       <div class="connexion">
         <a href="">Se connecter</a>
         <a href="">Créer un compte</a>
-      </div>
-
-      <div class="overview">
-        <h2>Overview</h2>
-        <p>Example</p>
       </div>
