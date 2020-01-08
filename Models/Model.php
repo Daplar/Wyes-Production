@@ -38,6 +38,25 @@ class Model
       die('Echec getNbLunettes, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
     }
   }
+  public function addComponent($infos)
+  {
+
+      try {
+          //Préparation de la requête
+          $requete = $this->bd->prepare('INSERT INTO COMPONENT(serial_number_comp, name, quantity) VALUES (:serial_number_comp, :name, :quantity)');
+
+          //Remplacement des marqueurs de place par les valeurs
+          $marqueurs = ['serial_number_comp', 'name', 'quantity'];
+          foreach ($marqueurs as $value) {
+              $requete->bindValue(':' . $value, $infos[$value]);
+          }
+
+          //Exécution de la requête
+          return $requete->execute();
+      } catch (PDOException $e) {
+          die('Echec addNobelPrize, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+  }
 
   public function less_than_20()
   {
