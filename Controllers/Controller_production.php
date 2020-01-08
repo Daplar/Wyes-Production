@@ -4,7 +4,7 @@ class Controller_production extends Controller
 {
   public function action_overview(){
     $m=Model::getModel();
-    $tab=['nb_components'=>$m->getNbComponent()];
+    $tab=['nb_components'=>$m->getNbComponent(), 'last3Comp'=>$m->getLastComp()];
     $this->render('production',$tab);
   }
 
@@ -17,6 +17,7 @@ class Controller_production extends Controller
        'message' => "La quantité n'est pas renseignée, une chaîne vide ou que des espaces."]);
    }
 }
+
 
   public function action_add(){
     //echo ('dans action add');
@@ -38,6 +39,8 @@ class Controller_production extends Controller
 
   public function action_default(){
     $this->action_overview();
+    $this->action_last();
+    echo "dans action par defaut";
   }
 }
 

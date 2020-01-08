@@ -70,6 +70,17 @@ class Model
     }
   }
 
+  public function getLastComp(){
+
+    try {
+            $req = $this->bd->prepare('SELECT * FROM COMPONENT ORDER BY id_comp DESC LIMIT 3');
+            $req->execute();
+            return $req->fetchall(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die('Echec getLast, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        }
+    }
+
   public function getNbComponent()
   {
     try {

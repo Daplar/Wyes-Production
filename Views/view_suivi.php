@@ -1,6 +1,14 @@
 <?php require('view_begin.php');?>
 <thead>
-  <tr><th>Idproduct</th><th>serial_number</th><th>serial_number_fabrication</th><th>name</th><th>status</th><th>fabrication_date</th><th>hardware_version</th></tr>
+  <tr>
+    <th>Idproduct</th>
+    <th>serial_number</th>
+    <th>serial_number_fabrication</th>
+    <th>name</th>
+    <th>status</th>
+    <th>fabrication_date</th>
+    <th>hardware_version</th>
+  </tr>
 </thead>
 <tbody>
   <tr>

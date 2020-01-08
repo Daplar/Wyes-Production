@@ -6,5 +6,7 @@
 
 <p> Il y a <?php echo $nb_components  ?> composants dans les stocks </p>
 
+
+<?php require('view_last.php') ?>
 <?php require('view_form_add.php') ?>
 <?php require('view_end.php') ?>
