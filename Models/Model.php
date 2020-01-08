@@ -103,6 +103,18 @@ class Model
       }
   }
 
+  public function getLunette($id)
+  {
+    try {
+        $requete = $this->bd->prepare('SELECT * FROM PRODUCT WHERE id_prod = :id');
+        $requete->bindValue(":id",$id);
+        $requete->execute();
+        return $requete->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die('Echec getLunette, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+  }
+
 
 }
 

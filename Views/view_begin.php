@@ -19,15 +19,15 @@
           <a href="http://www.instagram.com"><img src="Content/img/logo_instagram.png" alt="Instagram"></a>
         </div>
       </header>
-    <nav>
-      <ul>
-        <li><a href="?controller=home">Accueil</a></li>
-        <li><a href="">Suivi produit</a></li>
-        <li><a href="">Gestion retour</a></li>
-        <li><a href="?controller=production&action=overview">Production</a></li>
-        <li><a href="">Contact</a></li>
-      </ul>
-    </nav>
+      <nav>
+        <ul>
+          <li><a href="?controller=home">Accueil</a></li>
+          <li><a href="?controller=suivi&action=suivi">Suivi produit</a></li>
+          <li><a href="">Gestion retour</a></li>
+          <li><a href="?controller=production&action=overview">Production</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+      </nav>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     var liste=document.querySelector('nav ul');
