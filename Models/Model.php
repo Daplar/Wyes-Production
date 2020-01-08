@@ -43,10 +43,10 @@ class Model
 
       try {
           //Préparation de la requête
-          $requete = $this->bd->prepare('INSERT INTO nobels (year, category, name, birthdate, birthplace, county, motivation) VALUES (:year, :category, :name, :birthdate, :birthplace, :county, :motivation)');
+          $requete = $this->bd->prepare('INSERT INTO COMPONENT(serial_number_comp, name, quantity) VALUES (:serial_number_comp, :name, :quantity)');
 
           //Remplacement des marqueurs de place par les valeurs
-          $marqueurs = ['year', 'category', 'name', 'birthdate','birthplace', 'county', 'motivation'];
+          $marqueurs = ['serial_number_comp', 'name', 'quantity'];
           foreach ($marqueurs as $value) {
               $requete->bindValue(':' . $value, $infos[$value]);
           }
