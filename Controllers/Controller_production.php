@@ -40,7 +40,7 @@ class Controller_production extends Controller
   public function action_default(){
     $this->action_overview();
     $this->action_last();
-    echo "dans action par defaut";
+    //echo "dans action par defaut";
   }
 }
 
