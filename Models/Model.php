@@ -17,6 +17,7 @@ class Model
     }
   }
 
+
   public static function getModel()
   {
     if (is_null(self::$instance)) {
@@ -37,7 +38,36 @@ class Model
       die('Echec getNbLunettes, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
     }
   }
+  public function addComponent($infos)
+  {
 
+      try {
+          //Préparation de la requête
+          $requete = $this->bd->prepare('INSERT INTO nobels (year, category, name, birthdate, birthplace, county, motivation) VALUES (:year, :category, :name, :birthdate, :birthplace, :county, :motivation)');
+
+          //Remplacement des marqueurs de place par les valeurs
+          $marqueurs = ['year', 'category', 'name', 'birthdate','birthplace', 'county', 'motivation'];
+          foreach ($marqueurs as $value) {
+              $requete->bindValue(':' . $value, $infos[$value]);
+          }
+
+          //Exécution de la requête
+          return $requete->execute();
+      } catch (PDOException $e) {
+          die('Echec addNobelPrize, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+  }
+
+  public function less_than_20()
+  {
+    $nb_lunette=getNbLunettes();
+    if($nb_lunette<20)
+    {
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   public function getNbComponent()
   {
