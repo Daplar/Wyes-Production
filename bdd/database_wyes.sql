@@ -1,5 +1,5 @@
 
-DROP TABLE IF EXISTS PATIENT, PRODUCT, COMPONENT, TEST, STATUS, USER;
+DROP TABLE IF EXISTS PATIENT, PRODUCT, COMPONENT, TEST, STATUS, USER, NAME_COMP;
 
 set names utf8;
 
@@ -33,7 +33,7 @@ CREATE TABLE PRODUCT (
 CREATE TABLE COMPONENT (
   id_comp SERIAL,
   serial_number_comp VARCHAR (64),
-  name VARCHAR(64),
+  name_comp VARCHAR(64),
   quantity INT,
   PRIMARY KEY (id_comp)
 );
@@ -60,6 +60,17 @@ CREATE TABLE USER (
   PRIMARY KEY (id_user)
 );
 
+CREATE TABLE NAME_COMP (
+  name_comp VARCHAR (128) NOT NULL,
+  PRIMARY KEY (name_comp)
+);
+
+
+INSERT INTO NAME_COMP VALUES('Verre');
+INSERT INTO NAME_COMP VALUES('Monture');
+INSERT INTO NAME_COMP VALUES('Puce');
+INSERT INTO NAME_COMP VALUES('Capteur');
+
 
 INSERT INTO status VALUES('monté');
 INSERT INTO status VALUES('testé');
@@ -70,6 +81,7 @@ INSERT INTO status VALUES('reconditionné');
 
 
 ALTER TABLE PRODUCT ADD FOREIGN KEY (status) REFERENCES STATUS(status);
+ALTER TABLE COMPONENT ADD FOREIGN KEY (name_comp) REFERENCES NAME_COMP(name_comp);
 
 INSERT INTO PRODUCT VALUES(NULL,'serie_1','fabrication_1','test_lunette_1','monté','2020-07-01','meca_1','elec_1','logiciel_1','np','na','no_test');
 

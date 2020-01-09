@@ -4,7 +4,7 @@ class Controller_production extends Controller
 {
   public function action_overview(){
     $m=Model::getModel();
-    $tab=['nb_components'=>$m->getNbComponent(), 'last3Comp'=>$m->getLastComp(),'nb_lunettes_can_prod'=>$m->nb_prod_lunette()];
+    $tab=['nb_components'=>$m->getNbComponent(), 'last3Comp'=>$m->getLastComp()];
     $this->render('production',$tab);
   }
 
@@ -17,6 +17,20 @@ class Controller_production extends Controller
        'message' => "La quantité n'est pas renseignée, une chaîne vide ou que des espaces."]);
    }
 }
+
+  public function action_update_quantity(){
+    if ((! isset($_POST['quantity']))){
+      $this->render('message',
+        ['title' => "Quantité non spécifié",
+        'message' => "La quantité n'est pas renseignée, une chaîne vide ou que des espaces."]);
+    }
+    $m=Model::getModel();
+    $m->updateQuantity($_POST['name_comp'],$_POST['quantity']);
+    $this->render('message',
+      ['title' => "Quantité modifiée",
+      'message' => 'La quantité a été modifié pour les composants de type '.$_POST['name_comp']]);
+  }
+
 
 public function action_remove(){
    if(!isset($_GET['id'])){
@@ -47,7 +61,7 @@ public function action_remove(){
 		$_POST['quantity'] = intval($_POST['quantity']);
 
 		$m = Model::getModel();
-		$m->updateQuantity($_POST['name'],$_POST['quantity']);
+		$m->addComponent($_POST);
 
 		$this->render('message',
 		 ['title' => "Composant ajouté",

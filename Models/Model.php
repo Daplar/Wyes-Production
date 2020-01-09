@@ -52,13 +52,24 @@ class Model
     }
 }
 
+/*
   public function nb_prod_lunette()
   {
     try {
-        $requete = $this->bd->prepare('Select * from COMPONENT where name="glass"');
+
+        $requete = $this->bd->prepare('SELECT * FROM COMPONENT WHERE name= :name');
         $requete->execute();
         $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
         $glass=intval($tab["name"]/2);
+
+        $marqueurs = $this->
+
+
+
+        Comp();
+        foreach ($marqueurs as $value) {
+            $requete->bindValue(':name',$value);
+        }
 
         $requete = $this->bd->prepare('Select * from COMPONENT where name="monture"');
         $requete->execute();
@@ -81,6 +92,17 @@ class Model
         die('Echec nb_prod_lunette, erreur n°' . $e->getCode() . ':' . $e->getMessage());
     }
   }
+  */
+
+  public function getnameComp(){
+    try {
+        $requete = $this->bd->prepare('SELECT * FROM NAME_COMP');
+        $requete->execute();
+        return $requete->fetchall(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die('Echec getComponentInfos, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+    }
+  }
 
 
   public function isInDataBase($id)
@@ -99,9 +121,9 @@ public function isProdInDataBase($id_prod)
 
       try {
           //Préparation de la requête
-          $requete = $this->bd->prepare('INSERT INTO COMPONENT(serial_number_comp, name, quantity) VALUES (:serial_number_comp, :name, :quantity)');
+          $requete = $this->bd->prepare('INSERT INTO COMPONENT(serial_number_comp, name_comp, quantity) VALUES (:serial_number_comp, :name_comp, :quantity)');
           //Remplacement des marqueurs de place par les valeurs
-          $marqueurs = ['serial_number_comp', 'name', 'quantity'];
+          $marqueurs = ['serial_number_comp', 'name_comp', 'quantity'];
           foreach ($marqueurs as $value) {
               $requete->bindValue(':' . $value, $infos[$value]);
           }
@@ -146,16 +168,13 @@ public function isProdInDataBase($id_prod)
         }
     }
 
-    public function updateQuantity($name,$quantity)
+    public function updateQuantity($name_comp,$quantity)
     {
       try{
-        $requete1=$this->bd->prepare('select quantity WHERE name= :name');
-        $requete1->bindValue(":name",$name);
-        $old=$requete1->execute();
-
-        $requete2=$this->bd->prepare('UPDATE COMPONENT set quantity=:quantity WHERE name= :name');
-        $requete2->bindValue(':'.($quantity+$old),$name);
-        $requete2->execute();
+        $requete=$this->bd->prepare('UPDATE COMPONENT set quantity = :quantity WHERE name_comp = :name_comp');
+        $requete->bindValue(':quantity',$quantity);
+        $requete->bindValue(':name_comp',$name_comp);
+        $requete->execute();
       }catch(PDOException $e){
         die('Echec updateQuantity, erreur n°' . $e->getCode() . ':' . $e->getMessage());
       }
@@ -165,8 +184,8 @@ public function isProdInDataBase($id_prod)
     public function updateComponent($infos)
     {
         try {
-            $requete = $this->bd->prepare('UPDATE COMPONENT SET serial_number_comp = :serial_number_comp, name = :name, quantity = :quantity WHERE id_comp = :id_comp');
-            $marqueurs = ['id_comp','serial_number_comp', 'name', 'quantity'];
+            $requete = $this->bd->prepare('UPDATE COMPONENT SET serial_number_comp = :serial_number_comp, name_comp = :name_comp, quantity = :quantity WHERE id_comp = :id_comp');
+            $marqueurs = ['id_comp','serial_number_comp', 'name_comp', 'quantity'];
             foreach ($marqueurs as $value) {
                 $requete->bindValue(':' . $value, $infos[$value]);
             }
