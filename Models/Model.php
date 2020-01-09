@@ -52,6 +52,37 @@ class Model
     }
 }
 
+  public function nb_prod_lunette()
+  {
+    try {
+        $requete = $this->bd->prepare('Select * from COMPONENT where name="glass"');
+        $requete->execute();
+        $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
+        $glass=intval($tab["name"]/2);
+
+        $requete = $this->bd->prepare('Select * from COMPONENT where name="monture"');
+        $requete->execute();
+        $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
+        $monture=$tab["name"];
+
+        $requete = $this->bd->prepare('Select * from COMPONENT where name="chipset"');
+        $requete->execute();
+        $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
+        $chipset=$tab["name"];
+
+        $requete = $this->bd->prepare('Select * from COMPONENT where name="captor"');
+        $requete->execute();
+        $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
+        $captor=intval($tab["name"])/2;
+
+        return min($glass,$monture,$chipset,$captor);
+
+    } catch (PDOException $e) {
+        die('Echec nb_prod_lunette, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+    }
+  }
+
+
   public function isInDataBase($id)
 {
     return $this->getComponentInfos($id) !== false;
@@ -108,6 +139,21 @@ class Model
         } catch (PDOException $e) {
             die('Echec getLastComp, erreur n°' . $e->getCode() . ':' . $e->getMessage());
         }
+    }
+
+    public function updateQuantity($name,$quantity)
+    {
+      try{
+        $requete1=$this->bd->prepare('select quantity WHERE name= :name');
+        $requete1->bindValue(':'.$name);
+        $old=$requete1->execute();
+
+        $requete2=$this->bd->prepare('UPDATE COMPONENT set quantity=:quantity WHERE name= :name');
+        $requete2->bindValue(':'.($quantity+$old),$name);
+        $requete2->execute();
+      }catch(PDOException $e){
+        die('Echec updateQuantity, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
     }
 
 
