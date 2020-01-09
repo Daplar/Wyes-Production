@@ -3,7 +3,7 @@ require_once "Utils/functions.php"; //Pour avoir la fonction e()
 require_once "Models/Model.php";
 require_once "Controllers/Controller.php";
 
-$controllers=["home","production","suivi"];
+$controllers=["home","production","suivi","user"];
 $controllers_default="home";
 if(isset($_GET['controller']) and in_array($_GET['controller'],$controllers))
 {

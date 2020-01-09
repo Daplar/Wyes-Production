@@ -5,8 +5,8 @@
     <p>Telephone : 0000-00-00-00</p>
   </div>
   <div class="links">
-    <a href="http://wyes.fr/">Site officiel</a>
-    <a href="https://www.facebook.com/teamwyes/">Notre Facebook</a>
+    <a href="http://wyes.fr/" target=_blank>Site officiel</a>
+    <a href="https://www.facebook.com/teamwyes/" target=_blank>Notre Facebook</a>
   </div>
 </div>
 </div>
