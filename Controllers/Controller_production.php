@@ -52,7 +52,6 @@ public function action_remove(){
 		$this->render('message',
 		 ['title' => "Composant ajouté",
 		 'message' => "Le composant à été ajouté."]);
-    $this->render('production',[]);
 	}
 
   public function action_update(){

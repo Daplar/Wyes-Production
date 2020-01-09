@@ -1,5 +1,5 @@
 
-DROP TABLE IF EXISTS PATIENT, PRODUCT, COMPONENT, TEST, STATUS;
+DROP TABLE IF EXISTS PATIENT, PRODUCT, COMPONENT, TEST, STATUS, USER;
 
 set names utf8;
 
@@ -47,6 +47,19 @@ CREATE TABLE STATUS (
   status VARCHAR (128) NOT NULL,
   PRIMARY KEY (status)
 );
+
+CREATE TABLE USER (
+  id_user SERIAL,
+  name VARCHAR (64),
+  address VARCHAR (128),
+  e_mail VARCHAR (128),
+  user_status VARCHAR (128),
+  password VARCHAR (128),
+  login VARCHAR (64),
+  history_user TEXT DEFAULT NULL,
+  PRIMARY KEY (id_user)
+);
+
 
 INSERT INTO status VALUES('monté');
 INSERT INTO status VALUES('testé');

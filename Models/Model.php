@@ -64,15 +64,13 @@ class Model
       try {
           //Préparation de la requête
           $requete = $this->bd->prepare('INSERT INTO COMPONENT(serial_number_comp, name, quantity) VALUES (:serial_number_comp, :name, :quantity)');
-
           //Remplacement des marqueurs de place par les valeurs
           $marqueurs = ['serial_number_comp', 'name', 'quantity'];
           foreach ($marqueurs as $value) {
               $requete->bindValue(':' . $value, $infos[$value]);
           }
-
           //Exécution de la requête
-          echo ('dans add component');
+          //echo ('dans add component');
           return $requete->execute();
       } catch (PDOException $e) {
           die('Echec addComponent, erreur n°' . $e->getCode() . ':' . $e->getMessage());
@@ -162,6 +160,7 @@ class Model
       }
   }
 
+
   public function getLunette($id)
   {
     try {
@@ -171,6 +170,21 @@ class Model
         return $requete->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         die('Echec getLunette, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+  }
+
+
+  public function addUser($infos){
+    try {
+        $requete = $this->bd->prepare('INSERT INTO USER(name, address, e_mail, user_status, password, login, history_user) VALUES (:name, :address, :e_mail, :user_status, :password, :login, NULL)');
+        $marqueurs = ['name', 'address', 'e_mail', 'user_status', 'password', 'login'];
+        foreach ($marqueurs as $value) {
+          $requete->bindValue(':' . $value, $infos[$value]);
+        }
+
+        $requete->execute();
+    } catch (PDOException $e) {
+          die('Echec addUser, erreur n°' . $e->getCode() . ':' . $e->getMessage());
       }
   }
 
