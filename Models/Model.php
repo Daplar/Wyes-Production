@@ -150,7 +150,7 @@ public function isProdInDataBase($id_prod)
     {
       try{
         $requete1=$this->bd->prepare('select quantity WHERE name= :name');
-        $requete1->bindValue(':'.$name);
+        $requete1->bindValue(":name",$name);
         $old=$requete1->execute();
 
         $requete2=$this->bd->prepare('UPDATE COMPONENT set quantity=:quantity WHERE name= :name');
