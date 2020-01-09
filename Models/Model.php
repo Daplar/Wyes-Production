@@ -188,6 +188,18 @@ class Model
       }
   }
 
+  public function User_exists($login,$mdp){
+    try {
+      $requete = $this->bd->prepare('SELECT * FROM USER WHERE login = :login and password = :mdp');
+      $requete->bindValue(":login",$login);
+      $requete->bindValue(":mdp",$mdp);
+      $requete->execute();
+      return $requete->fetch(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+        die('Echec User_exists, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+  }
+
 
 }
 

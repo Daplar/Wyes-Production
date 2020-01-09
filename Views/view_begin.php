@@ -45,7 +45,7 @@
 
     </script>
     <div class="connexion">
-      <a href="">Se connecter</a>
+      <a href="?controller=user&action=form_connection">Se connecter</a>
       <a href="?controller=user&action=form_create">Créer un compte</a>
     </div>
 
