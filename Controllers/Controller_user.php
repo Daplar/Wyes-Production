@@ -26,10 +26,16 @@ class Controller_user extends Controller
      $this->render('form_connection',[]);
    }
 
+   public function action_connected(){
+     $_SESSION['nom'] = $_POST['nom'];
+     $_SESSION['prenom'] = $_POST['prenom'];
+     $_SESSION['connecte'] = true;
+   }
+
    public function action_connection(){
      $m=Model::getModel();
      if($m->User_exists($_POST['login'],$_POST['password'])){
-       echo('Vous êtes connecté');
+       $this->action_connected();
        //il faut créer un cookie avec une session pour l'utilisateur avec son statut en paramètre
      }
      else {

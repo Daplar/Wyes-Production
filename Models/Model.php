@@ -57,6 +57,11 @@ class Model
     return $this->getComponentInfos($id) !== false;
 }
 
+public function isProdInDataBase($id_prod)
+{
+  return $this->getLunette($id_prod) !== false;
+}
+
 
   public function addComponent($infos)
   {

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "Utils/functions.php"; //Pour avoir la fonction e()
 require_once "Models/Model.php";
 require_once "Controllers/Controller.php";

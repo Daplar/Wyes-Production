@@ -1,4 +1,5 @@
 <?php require('view_begin.php');?>
+
 <thead>
   <tr>
     <th>Idproduct</th>

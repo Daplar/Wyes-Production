@@ -5,7 +5,7 @@
 
 <form action = "?controller=user&action=connection" method="post">
 	<p> <label> LOGIN : <input type="text" name="login"/> </label> </p>
-	<p> <label> MOT DE PASSE : <input type="text" name="password"/> </label></p>
+	<p> <label> MOT DE PASSE : <input type="password" name="password"/> </label></p>
 
 
   <p>  <input type="submit" value="Connexion"/> </p>

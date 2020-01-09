@@ -23,7 +23,7 @@
       <nav>
         <ul>
           <li><a href="?controller=home">Accueil</a></li>
-          <li><a href="?controller=suivi&action=suivi">Suivi produit</a></li>
+          <li><a href="?controller=suivi">Suivi produit</a></li>
           <li><a href="">Gestion retour</a></li>
           <li><a href="?controller=production&action=overview">Production</a></li>
           <li><a href="">Contact</a></li>
