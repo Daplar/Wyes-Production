@@ -4,11 +4,33 @@ body{
 
 #body{
   background-color:#F8EFB1;
+  border-top-right-radius: 1em;
+  border-top-left-radius: 1em;
 }
 
+
+.contenu{
+  padding: 1em;
+  margin:1em;
+  border-top: thick double #534F44;
+}
+
+#logo{
+  width: 8em;
+  height: 8em;
+  border-top-left-radius: 1em;
+}
 .banniere{
   display: flex;
+  flex-direction: column;
   margin: auto;
+}
+
+.connexion{
+  float: right;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2em;
 }
 
 header{
@@ -17,7 +39,12 @@ header{
   justify-content: space-around;
   width: 100%;
   background-color: #F5CF71;
-  background-image: url('Content/img/ban.jpg');
+  height: 8em;
+  font-family: Jazz LET, fantasy;
+  font-size: 1.2em;
+  color: #6C5A0C;
+  border-top-right-radius: 1em;
+  border-top-left-radius: 1em;
 }
 
 header img{
@@ -35,8 +62,9 @@ header .social_media img{
 }
 
 nav{
-  height: 3em;
+  height: 2.8em;
   width: 100%;
+  background-color: #534F44;
 }
 
 nav ul{
@@ -46,11 +74,21 @@ nav ul{
   padding: 0.7em;
   justify-content:space-around;
   list-style-type: none;
+  text-decoration: none;
+}
+
+ul li a{
+  text-decoration: none;
+  font-family: Bookman, URW;
+  color: #FFE880;
+  font-size: 1.1em;
+  padding: 0.4em;
 }
 
 ul li a:active{
     background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.1));
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
+    font-size: 1.3em;
 }
 
 .fixNavigation{
@@ -58,6 +96,14 @@ ul li a:active{
  position: fixed;
  top: 0;
  width: 100%;
+ }
+
+ .overview{
+   padding: 1em;
+ }
+
+ .connexion{
+   padding: 1em;
  }
 
 /*
@@ -70,7 +116,10 @@ nav a{
 }
 */
 #end{
-  width: 100%;
-  height: 8em;
+  width: 100%-2em;
+  height: 9em;
+  padding: 1em;
   background-color: #807A4E ;
+  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 1em;
 }

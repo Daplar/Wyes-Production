@@ -1,3 +1,5 @@
+</div>
+
 <footer>
 <div id="end">
   <div class="contact">

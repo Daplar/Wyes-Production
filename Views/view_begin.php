@@ -9,14 +9,14 @@
   <body>
     <div id="body">
       <header>
-        <a href="index.php"><img src="Content/img/logo-wyes.jpg" alt="WYES"></a>
+        <a href="index.php"><img id="logo" src="Content/img/logo-wyes.jpg" alt="WYES"></a>
         <div class="banniere">
           <h1>WYES PRODUCTION</h1>
           <p>Site professionnel de gestion de production</p>
         </div>
         <div class="social_media">
           <a href="https://www.facebook.com/teamwyes/" target=_blank><img src="Content/img/logo_facebook.png" alt="Facebook"></a>
-          
+
           <a href="https://twitter.com/teamwyes?lang=fr" target=_blank><img src="Content/img/logo_twitter.png" alt="Twitter"></a>
         </div>
       </header>
@@ -53,3 +53,5 @@
       <h2>Overview</h2>
       <p>Example</p>
     </div>
+    <div class="contenu">
+      
