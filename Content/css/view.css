@@ -69,3 +69,9 @@ nav a{
   height: 8em;
   background-color: #807A4E ;
 }
+
+.coms_space{
+  width: 500px;
+  height: 200px;
+  border-color: red;
+}

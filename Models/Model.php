@@ -263,7 +263,7 @@ public function isProdInDataBase($id_prod)
 
   public function addCommentary($name,$com,$status){
     try {
-      $requete = $this->bd->prepare('INSERT INTO SUIVI(name,com,status) VALUES (:name,:com,:status)');
+      $requete = $this->bd->prepare('INSERT INTO SUIVI(id_user,name,status,commentary) VALUES (NULL,:name,:status,:com)');
       $requete->bindValue(":name",$name);
       $requete->bindValue(":com",$com);
       $requete->bindValue(":status",$status);
@@ -272,6 +272,16 @@ public function isProdInDataBase($id_prod)
       die('Echec addCommentary, erreur n°' . $e->getCode() . ':' . $e->getMessage());
     }
 
+  }
+
+  public function getComs(){
+    try {
+      $requete=$this->bd->prepare('SELECT * FROM SUIVI');
+      $requete->execute();
+      return $requete->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+      die('Echec getComs, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+    }
   }
 
 

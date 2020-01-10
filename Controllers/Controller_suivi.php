@@ -29,6 +29,16 @@ class Controller_suivi extends Controller
     $this->render('form_suivi',[]);
   }
 
+  public function action_add_com(){
+    if(isset($_POST["name"]) and isset($_POST["status"]) and isset($_POST["com"]))
+    {
+      $m=Model::getModel();
+      $m->addCommentary($_POST["name"],$_POST["com"],$_POST["status"]);
+      $tab=["coms"=>$m->getComs()];
+      $this->render("com",$tab);
+    }
+  }
+
   public function action_default()
   {
     $this->action_form_suivi();
