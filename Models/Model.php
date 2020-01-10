@@ -190,7 +190,7 @@ public function isProdInDataBase($id_prod)
   {
     try {
       //overview des quantitées des composants
-      $requete=$this->bd->prepare('SELECT COUNT(*) FROM COMPONENT');
+      $requete=$this->bd->prepare('SELECT SUM(quantity) FROM COMPONENT');
       $requete->execute();
       $tab = $requete->fetch(PDO::FETCH_NUM);
       return $tab[0];

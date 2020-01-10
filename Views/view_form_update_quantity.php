@@ -1,5 +1,5 @@
 
-<h1> Modifier les composants selon leurs noms </h1>
+<h1> Modifier les composants selon leurs types </h1>
 
 <form action = "?controller=production&action=update_quantity" method="post">
   <p>
