@@ -61,9 +61,10 @@ CREATE TABLE USER (
 );
 
 CREATE TABLE SUIVI(
-  id_user INT,
+  id_user SERIAL,
+  name VARCHAR(64),
   status VARCHAR(64),
-  commentary VARCHAR(64),
+  commentary VARCHAR(254),
   PRIMARY KEY (id_user)
 );
 
