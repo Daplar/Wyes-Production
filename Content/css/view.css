@@ -6,6 +6,11 @@ body{
   background-color:#F8EFB1;
 }
 
+.banniere{
+  display: flex;
+  margin: auto;
+}
+
 header{
   display: flex;
   flex-direction: row;
