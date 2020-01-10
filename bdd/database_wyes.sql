@@ -64,9 +64,9 @@ CREATE TABLE SUIVI(
   id_prod SERIAL,
   id_user SERIAL,
   status VARCHAR(64),
-  commentary VARCHAR(254)
+  commentary VARCHAR(64)
   PRIMARY KEY (id_prod)
-)
+);
 
 CREATE TABLE NAME_COMP (
   name_comp VARCHAR (128) NOT NULL,
