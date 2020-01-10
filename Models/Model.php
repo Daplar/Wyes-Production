@@ -52,47 +52,38 @@ class Model
     }
 }
 
-/*
-  public function nb_prod_lunette()
-  {
-    try {
 
-        $requete = $this->bd->prepare('SELECT * FROM COMPONENT WHERE name= :name');
+public function nb_prod_lunette()
+{
+  try {
+    $i = 0;
+    $tab = $this->getnameComp();
+    foreach ($tab as $v) {
+      foreach ($v as $key => $value) {
+        $requete = $this->bd->prepare('SELECT * FROM COMPONENT WHERE name_comp = :name_comp');
+        $requete->bindValue(':name_comp', $value);
         $requete->execute();
-        $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
-        $glass=intval($tab["name"]/2);
-
-        $marqueurs = $this->
-
-
-
-        Comp();
-        foreach ($marqueurs as $value) {
-            $requete->bindValue(':name',$value);
+        $tab = $requete->fetch(PDO::FETCH_NUM);
+        if ($value == "Verre"){
+          $glass =  intval($tab[0]/2);
         }
-
-        $requete = $this->bd->prepare('Select * from COMPONENT where name="monture"');
-        $requete->execute();
-        $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
-        $monture=$tab["name"];
-
-        $requete = $this->bd->prepare('Select * from COMPONENT where name="chipset"');
-        $requete->execute();
-        $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
-        $chipset=$tab["name"];
-
-        $requete = $this->bd->prepare('Select * from COMPONENT where name="captor"');
-        $requete->execute();
-        $tab=$requete->fetchAll(PDO::FETCH_ASSOC);
-        $captor=intval($tab["name"])/2;
-
-        return min($glass,$monture,$chipset,$captor);
-
-    } catch (PDOException $e) {
-        die('Echec nb_prod_lunette, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        if ($value == "Monture"){
+          $monture =  $tab[0];
+        }
+        if ($value == "Puce"){
+          $chipset =  $tab[0];
+        }
+        if ($value == "Capteur"){
+          $captor =  intval($tab[0]/2);
+        }
+      }
     }
+    return min($glass,$monture,$chipset,$captor);
   }
-  */
+  catch (PDOException $e) {
+      die('Echec getComponentInfos, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+  }
+}
 
   public function getnameComp(){
     try {

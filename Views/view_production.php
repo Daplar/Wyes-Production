@@ -8,7 +8,7 @@
 
 
 <h3>Lancer la production :</h3>
-<p>Vous pouvez produire <?php echo ("20exemple") ?> lunettes avec les composants disponible dans les stocks</p>
+<p>Vous pouvez produire <?php echo $nb_lunettes_can_prod ?> lunettes avec les composants disponible dans les stocks</p>
 
 
 <?php require('view_last.php') ?>

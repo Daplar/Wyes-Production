@@ -4,7 +4,7 @@ class Controller_production extends Controller
 {
   public function action_overview(){
     $m=Model::getModel();
-    $tab=['nb_components'=>$m->getNbComponent(), 'last3Comp'=>$m->getLastComp()];
+    $tab=['nb_components'=>$m->getNbComponent(), 'last3Comp'=>$m->getLastComp(),'nb_lunettes_can_prod'=>$m->nb_prod_lunette()];
     $this->render('production',$tab);
   }
 
