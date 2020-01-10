@@ -21,37 +21,61 @@
         </div>
       </header>
       <nav>
-        <ul>
-          <li><a href="?controller=home">Accueil</a></li>
-          <li><a href="?controller=suivi">Suivi produit</a></li>
-          <li><a href="">Gestion patient</a></li>
-          <li><a href="?controller=production&action=overview">Production</a></li>
-          <li><a href="">Contact</a></li>
-        </ul>
+        <div id="color">
+          <ul>
+            <li><a href="?controller=home">Accueil</a></li>
+            <li><a href="?controller=suivi">Suivi produit</a></li>
+            <li><a href="">Gestion patient</a></li>
+            <li><a href="?controller=production&action=overview">Production</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>
       </nav>
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    var liste=document.querySelector('nav ul');
+      <script type="text/javascript">
+      var include = function(url, callback){
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = url + '?' + (new Date().getTime());
 
-    var position_top_raccourci = liste.offset().top;
+      if (callback) {
+          script.onreadystatechange = callback;
+          script.onload = script.onreadystatechange;
+      }
 
-    $(window).scroll(function(){
-      if($(this).scrollTop() > position_top_raccourci)
-      {
-        liste.addClass("fixNavigation");
-      }else{
-        liste.removeClass("fixNavigation");
-      }})
+      document.getElementsByTagName('head')[0].appendChild(script);
+      }
 
-    </script>
-    <div class="connexion">
-      <a href="?controller=user&action=form_connection">Se connecter</a>
-      <a href="?controller=user&action=form_create">Créer un compte</a>
+      include('https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', function() {
+        var liste=document.querySelector('nav');
+        var position_top_raccourci = $(liste).offset().top;
+        var scroll=document.querySelector('div.scroll');
+
+        $(window).scroll(function(){
+          if($(this).scrollTop() > position_top_raccourci)
+          {
+            $(liste).removeClass("nav");
+            $(liste).addClass("fixNavigation");
+            $(scroll).removeClass("scroll");
+            $(scroll).addClass("scroll2");
+          }else{
+            $(liste).removeClass("fixNavigation");
+            $(liste).addClass("nav");
+            $(scroll).removeClass("scroll2");
+            $(scroll).addClass("scroll");
+          }})
+      })
+      </script>
+
+    <div class="scroll">
+      <div class="connexion">
+        <a href="?controller=user&action=form_connection">Se connecter</a>
+        <a href="?controller=user&action=form_create">Créer un compte</a>
+      </div>
+
+      <div class="overview">
+        <h2>Overview</h2>
+        <p>Example</p>
+      </div>
+      <div class="contenu">
     </div>
-
-    <div class="overview">
-      <h2>Overview</h2>
-      <p>Example</p>
-    </div>
-    <div class="contenu">
-      

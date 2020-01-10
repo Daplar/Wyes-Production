@@ -10,9 +10,14 @@ body{
 
 
 .contenu{
-  padding: 1em;
-  margin:1em;
   border-top: thick double #534F44;
+}
+
+.scroll{
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left:1em;
+  margin-right: 1em;
 }
 
 #logo{
@@ -61,10 +66,29 @@ header .social_media img{
   padding: 0.5em;
 }
 
-nav{
+.nav{
   height: 2.8em;
   width: 100%;
+}
+
+.fixNavigation{
+  height: 2.7em;
+  position: fixed;
+  width: 98.8%;
+  border-radius: 2em;
+  top: 0;
+ }
+
+#color{
   background-color: #534F44;
+}
+
+.scroll2{
+  padding-top: 2.8em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left:1em;
+  margin-right: 1em;
 }
 
 nav ul{
@@ -90,13 +114,6 @@ ul li a:active{
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
     font-size: 1.3em;
 }
-
-.fixNavigation{
- z-index: 9999;
- position: fixed;
- top: 0;
- width: 100%;
- }
 
  .overview{
    padding: 1em;
