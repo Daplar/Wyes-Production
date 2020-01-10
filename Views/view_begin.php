@@ -16,7 +16,7 @@
         </div>
         <div class="social_media">
           <a href="https://www.facebook.com/teamwyes/" target=_blank><img src="Content/img/logo_facebook.png" alt="Facebook"></a>
-          <a href="http://www.instagram.com"><img src="Content/img/logo_instagram.png" alt="Instagram"></a>
+          
           <a href="https://twitter.com/teamwyes?lang=fr" target=_blank><img src="Content/img/logo_twitter.png" alt="Twitter"></a>
         </div>
       </header>
