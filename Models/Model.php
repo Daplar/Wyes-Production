@@ -261,6 +261,19 @@ public function isProdInDataBase($id_prod)
       }
   }
 
+  public function addCommentary($name,$com,$status){
+    try {
+      $requete = $this->bd->prepare('INSERT INTO SUIVI(name,com,status) VALUES (:name,:com,:status)');
+      $requete->bindValue(":name",$name);
+      $requete->bindValue(":com",$com);
+      $requete->bindValue(":status",$status);
+      $requete->execute();
+    } catch (PDOException $e) {
+      die('Echec addCommentary, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+    }
+
+  }
+
 
 }
 
