@@ -38,11 +38,7 @@ class Controller_suivi extends Controller
     $this->render('message',
       ['title' => "",
       'message' => "Aucune valeure n'a été rentrée"]);
-      /*$m=Model::getModel();
-      echo($_POST["value"]);
-      echo($_POST["selected"]);
-      print_r($m->getLunetteFilter($_POST["selected"], $_POST["value"]));
-      print_r($m->getLunetteFilter("id_prod",1));*/
+
   }
 
   public function action_form_suivi(){
