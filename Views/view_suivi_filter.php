@@ -18,7 +18,9 @@
   </thead>
   <tbody>
     <?php foreach ($lunette_suivi as $key => $value) {
-      echo ('<td>'.$lunette_suivi[$key].'</td>');
+      foreach ($value as $k => $v) {
+        echo ('<td>'.$value[$k].'</td>');
+      }
     }?>
   </tbody>
 </table>

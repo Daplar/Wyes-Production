@@ -7,7 +7,7 @@ class Controller_suivi extends Controller
     {
       $m=Model::getModel();
       if ($m->isProdInDataBase($_POST["id_prod"])){
-        $tab=['lunette_suivi'=>$m->getLunette($_POST["id_prod"])];
+        $tab=['lunette_suivi'=>$m->getLunetteInfos($_POST["id_prod"])];
         $this->render('suivi',$tab);
       }
       else {
@@ -24,19 +24,25 @@ class Controller_suivi extends Controller
     }
   }
 
+  public function action_suivi_filter(){
+    if (isset($_POST["value"])){
+      $m=Model::getModel();
+      if ($m->getLunetteFilter($_POST["value"], $_POST["selected"])){
+        $tab = ['lunette_suivi'=>$m->getLunetteFilter($_POST["value"], $_POST["selected"])];
+        $this->render('suivi_filter',$tab);
+      }
+      $this->render('message',
+        ['title' => "",
+        'message' => "Cette valeur ne se trouve pas dans la base de donnnées"]);
+    }
+    $this->render('message',
+      ['title' => "",
+      'message' => "Aucune valeure n'a été rentrée"]);
+
+  }
 
   public function action_form_suivi(){
     $this->render('form_suivi',[]);
-  }
-
-  public function action_add_com(){
-    if(isset($_POST["name"]) and isset($_POST["status"]) and isset($_POST["com"]))
-    {
-      $m=Model::getModel();
-      $m->addCommentary($_POST["name"],$_POST["com"],$_POST["status"]);
-      $tab=["coms"=>$m->getComs()];
-      $this->render("com",$tab);
-    }
   }
 
   public function action_default()

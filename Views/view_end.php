@@ -1,3 +1,4 @@
+<footer>
 <div id="end">
   <div class="contact">
     <p>Mail : maxime@wyes.fr</p>
@@ -10,5 +11,6 @@
   </div>
 </div>
 </div>
+</footer>
 </body>
 </html>

@@ -1,5 +1,5 @@
 
-DROP TABLE IF EXISTS PATIENT, PRODUCT, COMPONENT, TEST, STATUS, USER, NAME_COMP, SUIVI;
+DROP TABLE IF EXISTS PATIENT, PRODUCT, COMPONENT, TEST, STATUS, USER, NAME_COMP;
 
 set names utf8;
 
@@ -60,14 +60,6 @@ CREATE TABLE USER (
   PRIMARY KEY (id_user)
 );
 
-CREATE TABLE SUIVI(
-  id_user SERIAL,
-  name VARCHAR(64),
-  status VARCHAR(64),
-  commentary VARCHAR(254),
-  PRIMARY KEY (id_user)
-);
-
 CREATE TABLE NAME_COMP (
   name_comp VARCHAR (128) NOT NULL,
   PRIMARY KEY (name_comp)
@@ -92,5 +84,7 @@ ALTER TABLE PRODUCT ADD FOREIGN KEY (status) REFERENCES STATUS(status);
 ALTER TABLE COMPONENT ADD FOREIGN KEY (name_comp) REFERENCES NAME_COMP(name_comp);
 
 INSERT INTO PRODUCT VALUES(NULL,'serie_1','fabrication_1','test_lunette_1','monté','2020-07-01','meca_1','elec_1','logiciel_1','np','na','no_test');
+INSERT INTO PRODUCT VALUES(4,'serie_1','fabrication_1',' ','monté','2020-07-01','meca_1','elec_1','logiciel_1','np','na','no_test');
+
 
 set names cp850;

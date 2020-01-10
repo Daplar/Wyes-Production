@@ -103,7 +103,7 @@ public function nb_prod_lunette()
 
 public function isProdInDataBase($id_prod)
 {
-  return $this->getLunette($id_prod) !== false;
+  return $this->getLunetteInfos($id_prod) !== false;
 }
 
 
@@ -222,10 +222,10 @@ public function isProdInDataBase($id_prod)
   }
 
 
-  public function getLunette($id)
+  public function getLunetteInfos($id)
   {
     try {
-        $requete = $this->bd->prepare('SELECT * FROM PRODUCT WHERE id_prod = :id');
+        $requete = $this->bd->prepare('SELECT *  FROM PRODUCT WHERE id_prod = :id');
         $requete->bindValue(":id",$id);
         $requete->execute();
         return $requete->fetch(PDO::FETCH_ASSOC);
@@ -261,29 +261,30 @@ public function isProdInDataBase($id_prod)
       }
   }
 
-  public function addCommentary($name,$com,$status){
+  public function getColumnsProduct(){
     try {
-      $requete = $this->bd->prepare('INSERT INTO SUIVI(id_user,name,status,commentary) VALUES (NULL,:name,:status,:com)');
-      $requete->bindValue(":name",$name);
-      $requete->bindValue(":com",$com);
-      $requete->bindValue(":status",$status);
+      $requete = $this->bd->prepare('SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = "PRODUCT"');
       $requete->execute();
-    } catch (PDOException $e) {
-      die('Echec addCommentary, erreur n°' . $e->getCode() . ':' . $e->getMessage());
-    }
-
-  }
-
-  public function getComs(){
-    try {
-      $requete=$this->bd->prepare('SELECT * FROM SUIVI');
-      $requete->execute();
-      return $requete->fetchAll(PDO::FETCH_ASSOC);
+      return $requete->fetchall(PDO::FETCH_ASSOC);
     }catch (PDOException $e) {
-      die('Echec getComs, erreur n°' . $e->getCode() . ':' . $e->getMessage());
-    }
+        die('Echec getColumnsProduct, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
   }
 
+  public function getLunetteFilter($filtre, $valeur){
+    try {
+      $chaine = "select * from product where ".$filtre."=".$valeur;
+      $requete = $this->bd->prepare($chaine);
+      //print_r($requete);
+      //$requete->bindValue(":filtre",$filtre);
+      //$requete->bindValue(":valeur",$valeur);
+      //$requete = $this->bd->prepare('SELECT * FROM PRODUCT WHERE id_prod = 1');
+      $requete->execute();
+      return $requete->fetchall(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+        die('Echec getLunetteFilter, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+    }
 
 }
 
