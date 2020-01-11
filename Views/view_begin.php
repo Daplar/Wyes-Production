@@ -11,12 +11,11 @@
       <header>
         <a href="index.php"><img id="logo" src="Content/img/logo-wyes.jpg" alt="WYES"></a>
         <div class="banniere">
-          <h1>WYES PRODUCTION</h1>
-          <p>Site professionnel de gestion de production</p>
+          <center><h1>WYES PRODUCTION</h1></center>
+          <div style="text-align:center">Site professionnel de gestion de production</p></div>
         </div>
         <div class="social_media">
           <a href="https://www.facebook.com/teamwyes/" target=_blank><img src="Content/img/logo_facebook.png" alt="Facebook"></a>
-
           <a href="https://twitter.com/teamwyes?lang=fr" target=_blank><img src="Content/img/logo_twitter.png" alt="Twitter"></a>
         </div>
       </header>
