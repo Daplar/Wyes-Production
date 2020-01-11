@@ -37,9 +37,10 @@ class Controller_user extends Controller
    }
 
    public function action_connected(){
-     $_SESSION['nom'] = $_POST['nom'];
-     $_SESSION['prenom'] = $_POST['prenom'];
+     $_SESSION['login'] = $_POST['login'];
+     $_SESSION['pass'] = $_POST['password'];
      $_SESSION['connecte'] = true;
+     
    }
 
    public function action_connection(){

@@ -3,13 +3,14 @@
 <footer>
 <div id="end">
   <div class="contact">
-    <p>Mail : maxime@wyes.fr</p>
+    <p>Nous contacter : wyes.prod.lannister@gmail.com</p>
+    <p>Mail du CEO : maxime@wyes.fr</p>
     <p>Adresse : 37, Quai de Grenelle 75015 Paris</p>
-    <p>Telephone : 0000-00-00-00</p>
   </div>
   <div class="links">
-    <a href="http://wyes.fr/" target=_blank>Site officiel</a>
-    <a href="https://www.facebook.com/teamwyes/" target=_blank>Notre Facebook</a>
+    <a href="http://wyes.fr/" target=_blank>Site officiel |</a>
+    <a href="https://www.captaincontrat.com/articles-droit-commercial/cgu-conditions-generales-utilisation" target=_blank> Conditions d'utilisations |</a>
+    <a href="https://www.marieclaire.fr/,politique-d-utilisation-des-cookies,708326.asp" target=_blank> Politique de Cookies </a>
   </div>
 </div>
 </div>
