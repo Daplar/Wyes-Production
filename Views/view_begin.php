@@ -24,8 +24,8 @@
           <ul>
             <li><a href="?controller=home">Accueil</a></li>
             <li><a href="?controller=suivi">Suivi produit</a></li>
-            <li><a href="">Gestion patient</a></li>
-            <li><a href="?controller=production&action=overview">Production</a></li>
+            <li><a href="?controller=patient">Gestion patient</a></li>
+            <li><a href="?controller=production">Production</a></li>
             <li><a href="?controller=gestion_user">Gestion utilisateur</a></li>
           </ul>
         </div>
