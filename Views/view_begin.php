@@ -73,8 +73,8 @@
       </div>
 
       <div class="overview">
-        <h2>Overview</h2>
-        <p>Example</p>
+        <h2>Informations Générales</h2>
+        <p>La dernière série de production a eu lieu <?= "20(exemple)" ?></p>
       </div>
       <div class="contenu">
     </div>
