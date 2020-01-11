@@ -31,11 +31,6 @@ class Controller_suivi extends Controller
         $tab = ['lunette_suivi'=>$m->getLunetteFilter($_POST["value"], $_POST["selected"])];
         $this->render('suivi_filter',$tab);
       }
-      echo ( $_POST["selected"]);
-      $filtre = htmlentities($_POST["selected"], ENT_QUOTES);
-      echo ($filtre);
-      $string = str_replace (' " ', ' ',$filtre);
-      echo ($string);
       $this->render('message',
         ['title' => "",
         'message' => "Cette valeur ne se trouve pas dans la base de donnnées"]);
