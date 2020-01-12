@@ -9,6 +9,19 @@ body{
 }
 
 
+/* Liste des pages de résultats */
+.listePages { width : 400px; margin : auto; padding-top : 20px; text-align: center; }
+.listePages p { color : blue; padding: 0px; margin:0px;}
+a.lienStart { text-decoration: none; display: inline-block; width : 25px; font-size: smaller; color : blue;}
+a.active { color : red;}
+
+img.icone { width: 16px; }
+
+table { border-collapse : collapse; margin : auto; }
+td,th { border : 1px solid black;  width : 300px; height : 30px; text-align : center;}
+.sansBordure { border : 0px; width : 30px; padding-left : 0px;}
+
+
 .contenu{
   border-top: thick double #534F44;
 }

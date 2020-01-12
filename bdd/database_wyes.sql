@@ -9,7 +9,6 @@ CREATE TABLE PATIENT (
   name VARCHAR(128),
   e_mail VARCHAR(128),
   address VARCHAR(128),
-  actions_history TEXT,
   review TEXT,
   PRIMARY KEY (id_patient)
 );
@@ -86,5 +85,21 @@ ALTER TABLE COMPONENT ADD FOREIGN KEY (name_comp) REFERENCES NAME_COMP(name_comp
 INSERT INTO PRODUCT VALUES(NULL,'serie_1','fabrication_1','test_lunette_1','monté','2020-07-01','meca_1','elec_1','logiciel_1','np','na','no_test');
 INSERT INTO PRODUCT VALUES(4,'serie_1','fabrication_1',' ','monté','2020-07-01','meca_1','elec_1','logiciel_1','np','na','no_test');
 
+
+INSERT INTO PATIENT VALUES(NULL,'patient_1','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_2','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_3','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_4','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_5','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_6','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_7','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_8','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_9','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_10','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_11','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_12','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_13','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_14','mail_test','address_test','no review');
+INSERT INTO PATIENT VALUES(NULL,'patient_15','mail_test','address_test','no review');
 
 set names cp850;

@@ -286,6 +286,35 @@ public function isProdInDataBase($id_prod)
       }
     }
 
+
+  public function getAllPatients($filter,$offset = 0, $limit = 5){
+    try {
+      $sql = 'SELECT * FROM PATIENT ORDER BY id_patient';
+      $sql .= ' DESC LIMIT :limit OFFSET :offset';
+      $bv = [];
+            $bv[] = [
+                'marqueur' => ':limit',
+                'valeur'   => intval($limit),
+                'type'     => PDO::PARAM_INT
+            ];
+
+            $bv[] = [
+                'marqueur' => ':offset',
+                'valeur'   => intval($offset),
+                'type'     => PDO::PARAM_INT
+            ];
+            $requete = $this->bd->prepare($sql);
+                  foreach ($bv as $value) {
+                      $requete->bindValue($value['marqueur'], $value['valeur'], $value['type']);
+                  }
+                  $requete->execute();
+      $requete->execute();
+      return $requete->fetchall(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+        die('Echec getAllPatients, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+  }
+
 }
 
  ?>

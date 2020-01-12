@@ -1,6 +1,6 @@
 
 <h1>
-	Liste des derniers composants ajoutés dans la base de donées
+	Liste des derniers composants ajoutés dans la base de données
 </h1>
 
 <p>

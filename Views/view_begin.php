@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="Content/css/view.css"/>
-    <title>WYES PROD</title>
+    <title>WYES PRODUCTION</title>
     <link rel="icon" type="image/jpg" href="Content/img/logo-wyes.jpg"/>
   </head>
   <body>
