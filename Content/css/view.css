@@ -1,3 +1,7 @@
+/* Utilisation de fonts */
+@font-face { font-family: "Anna"; src: url('../fonts/Penelope Anne.ttf'); }
+@font-face { font-family: "Uptown"; src: url('../fonts/Uptown Market Demo.ttf'); }
+
 body{
   background-color:#E2DCAE;
 }
@@ -8,6 +12,13 @@ body{
   border-top-left-radius: 1em;
 }
 
+h1,h2,h3{
+  font-family: "Anna";
+}
+
+p{
+  font-family: "Uptown";
+}
 
 /* Liste des pages de résultats */
 .listePages { width : 400px; margin : auto; padding-top : 20px; text-align: center; }

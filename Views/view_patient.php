@@ -1,6 +1,6 @@
 <?php require('view_begin.php');?>
 
-<h1>Gestion des utilisateurs</h1>
+<h1>Gestion des patients</h1>
 <p> Voici la page pour gérer les patients </p>
 
 <p>
@@ -37,8 +37,7 @@
 				echo 'lienStart';
 			}
 		?>
-		"
-		href="?controller=patient&action=pagination&start=<?= $i ?>"> <?= $i ?> </a>
+		" href="?controller=patient&action=pagination&start=<?= $i ?>"> <?= $i ?> </a>
 	<?php endfor ?>
 	<a href="?controller=patient&action=pagination&start=<?= $start+1 ?>">
 		<img class="icone" src="Content/img/next-icon.png"/>
