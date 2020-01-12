@@ -9,6 +9,6 @@
     <?= e($message) ?>
 </p>
 
-
+<a href="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Retourner à la page précèdente</a>
 
 <?php require "view_end.php"; ?>

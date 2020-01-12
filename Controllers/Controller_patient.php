@@ -22,13 +22,16 @@ class Controller_patient extends Controller
       }
       else{
         $this->render('message',
-          ['title' => "view_patient.php",
+          ['title' => "",
           'message' => "Aucun patient ne correspond à ce nom, veuillez réesayez."]);
+
       }
+      /*
+      echo '<script language="Javascript">
+        alert ("Aucun nom rentré" )
+        </script>';*/
     }
-    $this->render('message',
-      ['title' => "",
-      'message' => "Aucun nom n'a été entré, veuillez réésaysez."]);
+    $this->action_default();
   }
 
   public function action_default(){
