@@ -13,6 +13,24 @@ class Controller_patient extends Controller
   $this->render('patient', $tab);
   }
 
+  public function action_search(){
+    if (isset($_POST['name'])){
+      $m = Model::getModel();
+      if(!(empty($m->getNamePatient($_POST['name'])))){
+        $infos = ['info_patient'=>$m->getNamePatient($_POST['name'])];
+        $this->render('info_patient', $infos);
+      }
+      else{
+        $this->render('message',
+          ['title' => "view_patient.php",
+          'message' => "Aucun patient ne correspond à ce nom, veuillez réesayez."]);
+      }
+    }
+    $this->render('message',
+      ['title' => "",
+      'message' => "Aucun nom n'a été entré, veuillez réésaysez."]);
+  }
+
   public function action_default(){
     //$this->action_patient();
     $this->action_pagination();

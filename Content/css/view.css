@@ -1,6 +1,8 @@
 /* Utilisation de fonts */
 @font-face { font-family: "Anna"; src: url('../fonts/Penelope Anne.ttf'); }
 @font-face { font-family: "Uptown"; src: url('../fonts/Uptown Market Demo.ttf'); }
+@font-face { font-family: "Alex"; src: url('../fonts/AlexandriaFLF.ttf'); }
+
 
 body{
   background-color:#E2DCAE;
@@ -17,9 +19,14 @@ h1,h2,h3{
 }
 
 p{
-  font-family: "Uptown";
+  font-family: "Alex";
+  font-size : medium;
 }
 
+
+a{
+  text-decoration:none;
+}
 /* Liste des pages de résultats */
 .listePages { width : 400px; margin : auto; padding-top : 20px; text-align: center; }
 .listePages p { color : blue; padding: 0px; margin:0px;}

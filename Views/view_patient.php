@@ -3,12 +3,18 @@
 <h1>Gestion des patients</h1>
 <p> Voici la page pour gérer les patients </p>
 
+<form action = "?controller=patient&action=search" method="post">
+  <p> <label><input type="text" name="name" placeholder="Entrez le nom du patient"/> </label>
+  <input type="submit" value="Recherchez"/> </p>
+</form>
+
+
 <p>
 <center>
 <table>
 <th>Nom</th>
 <th>E-mail</th>
-<th>Addresse</th>
+<th>Adresse</th>
 
 <?php foreach($patients as $v): ?>
 <tr>
