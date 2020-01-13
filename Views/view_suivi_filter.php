@@ -18,9 +18,11 @@
   </thead>
   <tbody>
     <?php foreach ($lunette_suivi as $key => $value) {
+      echo('<tr>');
       foreach ($value as $k => $v) {
         echo ('<td>'.$value[$k].'</td>');
       }
+      echo ('</tr>');
     }?>
   </tbody>
 </table>
