@@ -4,8 +4,8 @@
 <p> Voici la page pour gérer les utilisateurs et leurs actions </p>
 
 <form action = "?controller=gestion_user&action=search" method="post">
-  <p> <label><input type="text" name="name" placeholder="Entrez le nom de l'utilisateur"/> </label>
-  <input type="submit" value="Recherchez"/> </p>
+  <p> <label><input type="text" class="champ" name="name" placeholder="Entrez le nom de l'utilisateur"/> </label>
+  <input type="submit" value="Rechercher"/> </p>
 </form>
 
 

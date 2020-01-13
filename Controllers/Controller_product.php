@@ -1,11 +1,11 @@
 <?php
 
-class Controller_production extends Controller
+class Controller_product extends Controller
 {
   public function action_overview(){
     $m=Model::getModel();
-    $tab=['nb_components'=>$m->getNbComponent()??0, 'last3Comp'=>$m->getLastComp(),'nb_lunettes_can_prod'=>$m->nb_prod_lunette()];
-    $this->render('production',$tab);
+    $tab=['nb_products'=>$m->getNbLunettes()??0, 'last3Comp'=>$m->getLastProd(),'nb_lunettes_can_prod'=>$m->nb_prod_lunette()];
+    $this->render('product',$tab);
   }
 
   public function verification($infos){
@@ -59,15 +59,15 @@ public function action_remove(){
 
   public function action_add(){
     //echo ('dans action add');
-		$this->verification($_POST);
-		$_POST['quantity'] = intval($_POST['quantity']);
+		//$this->verification($_POST);
+		$_POST['status'] = intval($_POST['status']);
 
 		$m = Model::getModel();
-		$m->addComponent($_POST);
+		$m->addProduct($_POST);
 
 		$this->render('message',
-		 ['title' => "Composant ajouté",
-		 'message' => "Le composant à été ajouté."]);
+		 ['title' => "Produit ajouté",
+		 'message' => "Le produit à été ajouté."]);
 	}
 
   public function action_update(){
@@ -83,7 +83,7 @@ public function action_remove(){
 			 'message' => "Le composant à été modifié."]);
 	}
 
-  public function action_form_update() {
+  public function action_form_update_prod() {
    if(!isset($_GET['id'])){
      $this->render('message',
        ['title' => "Pas de composant",
@@ -92,10 +92,10 @@ public function action_remove(){
 
    $id = $_GET['id'];
    $m = Model::getModel();
-   if(! $m->isInDataBase($id)){
+   if(! $m->ProdisInDataBase($id)){
      $this->render('message',
-       ['title' => "Le composant n'existe pas",
-       'message' => "Il n'y a pas de composant qui correspond à cet id."]);
+       ['title' => "Le produit n'existe pas dans la base de données",
+       'message' => "Il n'y a pas de produit qui correspond à cet id."]);
    }
 
    $inf = $m->getComponentInfos($id); // Contient les infos du composant

@@ -8,6 +8,8 @@ body{
   background-color:#E2DCAE;
 }
 
+ul#cemenu li {display:inline-block;}
+
 #body{
   background-color:#F8EFB1;
   border-top-right-radius: 1em;
@@ -28,7 +30,7 @@ a{
   text-decoration:none;
 }
 
-label { display : block;  width : 550px; }
+.champ {  width: 200px; }
 /* Liste des pages de résultats */
 .listePages { width : 400px; margin : auto; padding-top : 20px; text-align: center; }
 .listePages p { color : blue; padding: 0px; margin:0px;}
@@ -147,7 +149,9 @@ ul li a:active{
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
     font-size: 1.3em;
 }
-
+li {
+  list-style-type: none;
+}
  .overview{
    padding: 1em;
  }

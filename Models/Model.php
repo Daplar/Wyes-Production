@@ -358,6 +358,41 @@ public function getAllPatients($filter, $offset = 0, $limit = 5){
       }
   }
 
+  public function getLastProd(){
+
+    try {
+            $req = $this->bd->prepare('SELECT * FROM PRODUCT ORDER BY id_prod DESC LIMIT 3');
+            $req->execute();
+            return $req->fetchall(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            die('Echec getLastProd, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        }
+    }
+
+    public function addProduct($infos){
+        try {
+            //Préparation de la requête
+            $requete = $this->bd->prepare('INSERT INTO PRODUCT(serial_number,name, status) VALUES (:serial_number, :name, :status)');
+            //Remplacement des marqueurs de place par les valeurs
+            $marqueurs = ['serial_number', 'name', 'status'];
+            foreach ($marqueurs as $value) {
+                $requete->bindValue(':' . $value, $infos[$value]);
+            }
+            return $requete->execute();
+        } catch (PDOException $e) {
+            die('Echec addProduct, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        }
+    }
+
+    public function getStatusProd(){
+      try {
+          $requete = $this->bd->prepare('SELECT * FROM STATUS');
+          $requete->execute();
+          return $requete->fetchall(PDO::FETCH_ASSOC);
+      } catch (PDOException $e) {
+          die('Echec getComponentInfos, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+      }
+    }
 
 }
 

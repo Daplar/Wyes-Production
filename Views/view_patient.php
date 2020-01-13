@@ -5,7 +5,7 @@
 
 <form action = "?controller=patient&action=search" method="post">
   <p> <label><input type="text" name="name" placeholder="Entrez le nom du patient"/> </label>
-  <input type="submit" value="Recherchez"/> </p>
+  <input type="submit" value="Rechercher"/> </p>
 </form>
 
 
