@@ -74,7 +74,7 @@
 
       <div class="overview">
         <h2>Informations Générales</h2>
-        <p>La dernière série de production a eu lieu <?= "20(exemple)" ?></p>
+        <p>La dernière série de production a eu lieu il y a <?= "3" ?> jours</p>
       </div>
       <div class="contenu">
     </div>

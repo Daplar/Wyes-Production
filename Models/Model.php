@@ -126,10 +126,10 @@ public function isProdInDataBase($id_prod)
       }
   }
 
-  public function less_than_20()
+  public function less_than($nb)
   {
     $nb_lunette = getNbLunettes();
-    if($nb_lunette<20)
+    if($nb_lunette<$nb)
     {
       return true;
     }else{
