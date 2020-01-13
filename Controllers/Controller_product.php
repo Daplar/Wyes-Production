@@ -30,7 +30,7 @@ class Controller_product extends Controller
     $m->updateQuantity($_POST['name_comp'],$_POST['quantity']);
     $this->render('message',
       ['title' => "Quantité modifiée",
-      'message' => 'La quantité a été modifié pour les composants de type '.$_POST['name_comp']]);
+      'message' => 'La quantité a été modifié pour les produits de type '.$_POST['name_comp']]);
   }
 
 
@@ -38,23 +38,23 @@ public function action_remove(){
    if(!isset($_GET['id'])){
      $this->render('message',
        ['title' => "Pas d'id défini'",
-       'message' => "Aucun id de composant n'est défini dans les paramètres de l'URL."]);
+       'message' => "Aucun id de produit n'est défini dans les paramètres de l'URL."]);
    }
 
    $id = $_GET['id'];
    $m = Model::getModel();
    if(! $m->isInDataBase($id)){
      $this->render('message',
-       ['title' => "Le composant n'existe pas",
-       'message' => "Il n'y a pas de composant qui correspond à cet id."]);
+       ['title' => "Le produit n'existe pas",
+       'message' => "Il n'y a pas de produit qui correspond à cet id."]);
    }
 
-   $inf = $m->removeComponent($id); // Contient les infos du composant
+   $inf = $m->removeComponent($id); // Contient les infos du produit
 
 
    $this->render('message',
-     ['title' => "Composant supprimé",
-     'message' => "Le composant à été supprimé."]);
+     ['title' => "produit supprimé",
+     'message' => "Le produit à été supprimé."]);
 }
 
   public function action_add(){
@@ -71,35 +71,35 @@ public function action_remove(){
 	}
 
   public function action_update(){
-		 $this->verification($_POST);
+		 //$this->verification($_POST);
 
-		 $_POST['quantity'] = intval($_POST['quantity']);
+		 //$_POST['quantity'] = intval($_POST['quantity']);
 
-		 $_POST['id_comp'] = $_GET['id'];
+		 $_POST['id_prod'] = $_GET['id'];
 		 $m = Model::getModel();
-		 $m->updateComponent($_POST);
+		 $m->updateProduct($_POST);
 		 $this->render('message',
-			 ['title' => "Composant modifié",
-			 'message' => "Le composant à été modifié."]);
+			 ['title' => "produit modifié",
+			 'message' => "Le produit à été modifié."]);
 	}
 
   public function action_form_update_prod() {
    if(!isset($_GET['id'])){
      $this->render('message',
-       ['title' => "Pas de composant",
-       'message' => "Aucun composant n'est défini dans les paramètres de l'URL."]);
+       ['title' => "Pas de produit",
+       'message' => "Aucun produit n'est défini dans les paramètres de l'URL."]);
    }
 
    $id = $_GET['id'];
    $m = Model::getModel();
-   if(! $m->ProdisInDataBase($id)){
+   if(! $m->isProdInDataBase($id)){
      $this->render('message',
        ['title' => "Le produit n'existe pas dans la base de données",
        'message' => "Il n'y a pas de produit qui correspond à cet id."]);
    }
 
-   $inf = $m->getComponentInfos($id); // Contient les infos du composant
-   $this->render('form_update',$inf);
+   $inf = $m->getLunetteInfos($id); // Contient les infos du produit
+   $this->render('form_update_product',$inf);
 }
 
 

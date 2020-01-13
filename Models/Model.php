@@ -186,6 +186,20 @@ public function isProdInDataBase($id_prod)
         }
     }
 
+    public function updateProduct($infos)
+    {
+        try {
+            $requete = $this->bd->prepare('UPDATE PRODUCT SET serial_number = :serial_number, name = :name, status = :status WHERE id_prod = :id_prod');
+            $marqueurs = ['id_prod','serial_number', 'name', 'status'];
+            foreach ($marqueurs as $value) {
+                $requete->bindValue(':' . $value, $infos[$value]);
+            }
+            return $requete->execute();
+        } catch (PDOException $e) {
+            die('Echec updateProduct, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        }
+    }
+
   public function getNbComponent()
   {
     try {

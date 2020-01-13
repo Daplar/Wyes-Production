@@ -15,12 +15,12 @@
 	<td><?= $v['name'] ?></td>
 	<td><?= $v['status'] ?></td>
 	<td>
-	<a href="?controller=production&action=form_update_prod&id=<?= $v['id_prod'] ?>">
+	<a href="?controller=product&action=form_update_prod&id=<?= $v['id_prod'] ?>">
 		<img src="Content/img/modif-icon.png"/>
 	</a>
 </td>
 <td>
-	<a href="?controller=production&action=remove_prod&id=<?= $v['id_prod'] ?>">
+	<a href="?controller=product&action=remove_prod&id=<?= $v['id_prod'] ?>">
 		<img class="icon" src="Content/img/remove-icon.png"/>
 	</a>
 </td>
