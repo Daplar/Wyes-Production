@@ -34,7 +34,7 @@
 		<img class="icone" src="Content/img/previous-icon.png"/>
 	</a>
 	<?php endif?>
-	<?php for($i=0; $i<=3; $i++): ?>
+	<?php for($i=0; $i<=10; $i++): ?>
 		<a class="
 		<?php
 			if ($i == $start) {
