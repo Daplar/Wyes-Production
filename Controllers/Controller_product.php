@@ -34,7 +34,7 @@ class Controller_product extends Controller
   }
 
 
-public function action_remove(){
+public function action_remove_prod(){
    if(!isset($_GET['id'])){
      $this->render('message',
        ['title' => "Pas d'id défini'",
@@ -43,15 +43,13 @@ public function action_remove(){
 
    $id = $_GET['id'];
    $m = Model::getModel();
-   if(! $m->isInDataBase($id)){
+   if(! $m->isProdInDataBase($id)){
      $this->render('message',
        ['title' => "Le produit n'existe pas",
        'message' => "Il n'y a pas de produit qui correspond à cet id."]);
    }
 
-   $inf = $m->removeComponent($id); // Contient les infos du produit
-
-
+   $inf = $m->removeProduct($id); // Contient les infos du produit
    $this->render('message',
      ['title' => "produit supprimé",
      'message' => "Le produit à été supprimé."]);

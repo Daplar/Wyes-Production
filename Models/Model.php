@@ -148,6 +148,13 @@ public function isProdInDataBase($id_prod)
     return $requete->execute();
 }
 
+public function removeProduct($id_prod)
+{
+  $requete = $this->bd->prepare("DELETE FROM PRODUCT WHERE id_prod = :id_prod");
+  $requete->bindValue(':id_prod', intval($id_prod), PDO::PARAM_INT);
+  return $requete->execute();
+}
+
   public function getLastComp(){
 
     try {
@@ -299,16 +306,17 @@ public function isProdInDataBase($id_prod)
 
   public function getLunetteFilter($filtre, $valeur){
     try {
-      $chaine = "select * from product where ".$filtre."=".$valeur;
-      $requete = $this->bd->prepare($chaine);
-      //print_r($requete);
-      //$requete->bindValue(":filtre",$filtre);
-      //$requete->bindValue(":valeur",$valeur);
-      //$requete = $this->bd->prepare('SELECT * FROM PRODUCT WHERE id_prod = 1');
+      //$chaine = "select * from product where ".$filtre."=".$valeur;
+      $requete = $this->bd->prepare('SELECT * FROM PRODUCT WHERE :filtre = :valeur');
+
+        $chaine = "SELECT * FROM PRODUCT WHERE ".$filtre."= ".":valeur";
+        $requete = $this->bd->prepare($chaine);
+        $requete->bindValue(":valeur", $valeur);
+
       $requete->execute();
       return $requete->fetchall(PDO::FETCH_ASSOC);
     }catch (PDOException $e) {
-        die('Echec getLunetteFilter, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        die('Echec getLunetteFilter, erreur n°' . $e->getCode() . ':' . $e->getMessage().print_r($requete). ($valeur));
       }
     }
 

@@ -27,8 +27,9 @@ class Controller_suivi extends Controller
   public function action_suivi_filter(){
     if (isset($_POST["value"])){
       $m=Model::getModel();
-      if ($m->getLunetteFilter($_POST["value"], $_POST["selected"])){
-        $tab = ['lunette_suivi'=>$m->getLunetteFilter($_POST["value"], $_POST["selected"])];
+      
+      if ($m->getLunetteFilter($_POST["selected"], $_POST["value"])){
+        $tab = ['lunette_suivi'=>$m->getLunetteFilter($_POST["selected"], $_POST["value"])];
         $this->render('suivi_filter',$tab);
       }
       $this->render('message',
