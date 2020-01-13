@@ -210,6 +210,18 @@ public function isProdInDataBase($id_prod)
     }
   }
 
+    public function getNameUser($nom){
+    try {
+      $requete = $this->bd->prepare('SELECT * FROM USER WHERE name = :name ');
+      $requete->bindValue(":name",$nom);
+      $requete->execute();
+      return $requete->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+      die('Echec getNameUser, erreur n°' . $e->getCode() . ' : ' . $e->getMessage());
+    }
+  }
+
+
   public function getLastPatient()
   {
     try {
@@ -287,33 +299,65 @@ public function isProdInDataBase($id_prod)
     }
 
 
-  public function getAllPatients($filter,$offset = 0, $limit = 5){
-    try {
-      $sql = 'SELECT * FROM PATIENT ORDER BY id_patient';
-      $sql .= ' DESC LIMIT :limit OFFSET :offset';
-      $bv = [];
-            $bv[] = [
-                'marqueur' => ':limit',
-                'valeur'   => intval($limit),
-                'type'     => PDO::PARAM_INT
-            ];
+    public function getAllUsers($filter,$offset = 0, $limit = 5){
+      try {
+        $sql = 'SELECT * FROM USER ORDER BY id_user ';
+        $sql .= ' DESC LIMIT :limit OFFSET :offset';
+        $bv = [];
+              $bv[] = [
+                  'marqueur' => ':limit',
+                  'valeur'   => intval($limit),
+                  'type'     => PDO::PARAM_INT
+              ];
 
-            $bv[] = [
-                'marqueur' => ':offset',
-                'valeur'   => intval($offset),
-                'type'     => PDO::PARAM_INT
-            ];
-            $requete = $this->bd->prepare($sql);
-                  foreach ($bv as $value) {
-                      $requete->bindValue($value['marqueur'], $value['valeur'], $value['type']);
-                  }
-                  $requete->execute();
-      $requete->execute();
-      return $requete->fetchall(PDO::FETCH_ASSOC);
-    }catch (PDOException $e) {
-        die('Echec getAllPatients, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+              $bv[] = [
+                  'marqueur' => ':offset',
+                  'valeur'   => intval($offset),
+                  'type'     => PDO::PARAM_INT
+              ];
+              $requete = $this->bd->prepare($sql);
+                    foreach ($bv as $value) {
+                        $requete->bindValue($value['marqueur'], $value['valeur'], $value['type']);
+                    }
+                    $requete->execute();
+        $requete->execute();
+        return $requete->fetchall(PDO::FETCH_ASSOC);
+      }catch (PDOException $e) {
+          die('Echec getAllUsers, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+        }
+    }
+
+public function getAllPatients($filter, $offset = 0, $limit = 5){
+    try {
+          $sql = 'SELECT * FROM PATIENT WHERE 1=1';
+          $bv = [];
+
+
+          $sql .= ' ORDER BY id_patient DESC LIMIT :limit OFFSET :offset';
+          $bv[] = [
+              'marqueur' => ':limit',
+              'valeur'   => intval($limit),
+              'type'     => PDO::PARAM_INT
+          ];
+
+          $bv[] = [
+              'marqueur' => ':offset',
+              'valeur'   => intval($offset),
+              'type'     => PDO::PARAM_INT
+          ];
+
+          //Exécution et renvoi des résultats
+          $requete = $this->bd->prepare($sql);
+          foreach ($bv as $value) {
+              $requete->bindValue($value['marqueur'], $value['valeur'], $value['type']);
+          }
+          $requete->execute();
+          return $requete->fetchAll(PDO::FETCH_ASSOC);
+      } catch (PDOException $e) {
+          die('Echec getAllPatients, erreur n°' . $e->getCode() . ':' . $e->getMessage());
       }
   }
+
 
 }
 

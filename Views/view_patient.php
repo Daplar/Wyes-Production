@@ -29,12 +29,12 @@
 <?php if(isset($start)): ?>
 <div class="listePages">
 	<p>Pages:</p>
-	<?php if((isset($start) and $start != 1)): ?>
+	<?php if((isset($start) and $start != 0)): ?>
 	<a href="?controller=patient&action=pagination&start=<?= $start-1 ?>">
 		<img class="icone" src="Content/img/previous-icon.png"/>
 	</a>
 	<?php endif?>
-	<?php for($i=1; $i<=3; $i++): ?>
+	<?php for($i=0; $i<=10; $i++): ?>
 		<a class="
 		<?php
 			if ($i == $start) {

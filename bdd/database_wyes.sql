@@ -102,4 +102,21 @@ INSERT INTO PATIENT VALUES(NULL,'patient_13','mail_test','address_test','no revi
 INSERT INTO PATIENT VALUES(NULL,'patient_14','mail_test','address_test','no review');
 INSERT INTO PATIENT VALUES(NULL,'patient_15','mail_test','address_test','no review');
 
+INSERT INTO USER VALUES(NULL,'user_1','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_2','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_3','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_4','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_5','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_6','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_7','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_8','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_9','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_10','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_11','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_12','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_13','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_14','address_test','e_mail_test','status','pass','login',NULL);
+INSERT INTO USER VALUES(NULL,'user_15','address_test','e_mail_test','status','pass','login',NULL);
+
+
 set names cp850;

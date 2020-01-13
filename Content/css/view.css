@@ -27,6 +27,8 @@ p{
 a{
   text-decoration:none;
 }
+
+label { display : block;  width : 550px; }
 /* Liste des pages de résultats */
 .listePages { width : 400px; margin : auto; padding-top : 20px; text-align: center; }
 .listePages p { color : blue; padding: 0px; margin:0px;}

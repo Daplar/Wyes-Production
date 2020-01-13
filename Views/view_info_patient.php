@@ -15,7 +15,6 @@
 <th>E-mail</th>
 <th>Adresse</th>
 <th>Avis</th>
-<th>Ajouté le</th>
 <?php foreach($info_patient as $v): ?>
   <tr>
   <?php foreach($v as $value): ?>

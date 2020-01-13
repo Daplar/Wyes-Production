@@ -7,9 +7,11 @@ class Controller_patient extends Controller
   $m = Model::getModel();
   $p = $_GET['start'] ?? 0; // Pagination commence à 0 par défaut
 
+  /*echo ('dans pagination');
+  echo ($p);*/
   $tab =
     ['patients' => $m->getAllPatients(null,$p*5),
-    'start' => $_GET['start'] ?? 1];
+    'start' => $_GET['start'] ?? 0];
   $this->render('patient', $tab);
   }
 
@@ -26,13 +28,14 @@ class Controller_patient extends Controller
           'message' => "Aucun patient ne correspond à ce nom, veuillez réesayez."]);
 
       }
-      /*
-      echo '<script language="Javascript">
-        alert ("Aucun nom rentré" )
-        </script>';*/
+
+      $this->render('message',
+        ['title' => "",
+        'message' => "Aucun nom n'a été entré, veuillez réesayez."]);
     }
     $this->action_default();
   }
+
 
   public function action_default(){
     //$this->action_patient();
