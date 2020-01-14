@@ -52,6 +52,17 @@ class Model
     }
 }
 
+public function add_type_component($nom_comp){
+  try {
+      //Préparation de la requête
+      $requete = $this->bd->prepare('INSERT INTO NAME_COMP(name_comp) VALUES (:name_comp)');
+      $requete->bindValue(':name_comp', $nom_comp);
+      return $requete->execute();
+    }catch (PDOException $e) {
+      die('Echec getComponentInfos, erreur n°' . $e->getCode() . ':' . $e->getMessage());
+  }
+}
+
 
 public function nb_prod_lunette()
 {

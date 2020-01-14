@@ -23,4 +23,5 @@
 <?php require('view_last.php') ?>
 <?php require('view_form_add.php') ?>
 <?php require('view_form_update_quantity.php') ?>
+<?php require('view_form_add_component.php') ?>
 <?php require('view_end.php') ?>

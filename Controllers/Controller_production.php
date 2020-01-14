@@ -17,6 +17,17 @@ class Controller_production extends Controller
        'message' => "La quantité n'est pas renseignée, une chaîne vide ou que des espaces."]);
    }
 }
+
+  public function action_add_component(){
+    if (isset($_POST['name_comp'] )){
+      $m=Model::getModel();
+      $m->add_type_component($_POST['name_comp']);
+      $this->render('message',
+        ['title' => "Type de composant ajouté",
+        'message' => 'Le composant a été ajouté']);
+    }
+  }
+
   public function action_product(){
     $this->render('product',[]);
   }
