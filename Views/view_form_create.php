@@ -14,6 +14,7 @@
 	<p>
 		<label> <input type="radio" name="user_status" value="Sous-traitant"> Sous-traitant chargé des stocks </label>
 		<label> <input type="radio" name="user_status" value="Membre"> Membre de l'ONG WYES </label>
+		<label> <input type="radio" name="user_status" value="Membre"> Administrateur </label>
 	</p>
 
 <p> <label> <input type="checkbox" name="conditions" value="Conditions" checked> <?php echo $message ?> </label> </p>
